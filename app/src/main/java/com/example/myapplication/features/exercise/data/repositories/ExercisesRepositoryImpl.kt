@@ -10,7 +10,9 @@ class ExercisesRepositoryImpl(
 ) : ExerciseRepository {
 
     override suspend fun getExercises(): List<Exercise> {
-        val response = api.getExercises()
+        val response = api.getExercises(
+            limit = 25
+        )
         return response.data.map { it.toDomain() }
     }
 }

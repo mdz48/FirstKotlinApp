@@ -1,6 +1,7 @@
 package com.example.myapplication.core.di
 
 import android.content.Context
+
 import com.example.myapplication.core.network.ExerciseApi
 import com.example.myapplication.features.exercise.data.repositories.ExercisesRepositoryImpl
 import com.example.myapplication.features.exercise.domain.repositories.ExerciseRepository

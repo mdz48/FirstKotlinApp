@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.secrets.gradle)
 }
 
 android {
@@ -58,4 +59,5 @@ dependencies {
     implementation(libs.com.squareup.retrofit2.converter.json)  // JSON
     implementation(libs.androidx.ui)
     implementation(libs.io.coil.kt.coil.compose)      // Coil
+     implementation(libs.io.coil.kt.coil.gif)          // Coil GIF
 }
