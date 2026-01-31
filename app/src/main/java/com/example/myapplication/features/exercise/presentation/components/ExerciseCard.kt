@@ -89,6 +89,8 @@ fun ExerciseCard(
                     overflow = TextOverflow.Ellipsis,
                 )
                 Spacer(modifier = Modifier.height(4.dp))
+                Text("Instructions:", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                Spacer(modifier = Modifier.height(4.dp))
                 instructions.forEachIndexed { index, instruction ->
                     Row(
                         verticalAlignment = Alignment.Top,
