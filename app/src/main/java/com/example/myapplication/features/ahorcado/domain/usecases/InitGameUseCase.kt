@@ -1,4 +1,4 @@
-package com.example.myapplication.ahorcado.domain.usecases
+package com.example.myapplication.features.ahorcado.domain.usecases
 
 class InitGameUseCase {
 

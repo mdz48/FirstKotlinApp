@@ -1,4 +1,4 @@
-package com.example.myapplication.contador.presentation.screens
+package com.example.myapplication.features.contador.presentation.screens
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

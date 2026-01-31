@@ -54,4 +54,8 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+    implementation(libs.com.squareup.retrofit2.retrofit)        // Retrofit
+    implementation(libs.com.squareup.retrofit2.converter.json)  // JSON
+    implementation(libs.androidx.ui)
+    implementation(libs.io.coil.kt.coil.compose)      // Coil
 }

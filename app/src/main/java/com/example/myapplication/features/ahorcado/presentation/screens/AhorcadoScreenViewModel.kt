@@ -1,11 +1,11 @@
-package com.example.myapplication.ahorcado.presentation.screens
+package com.example.myapplication.features.ahorcado.presentation.screens
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
-import com.example.myapplication.ahorcado.domain.usecases.InitGameUseCase
+import com.example.myapplication.features.ahorcado.domain.usecases.InitGameUseCase
 
 class AhorcadoScreenViewModel : ViewModel() {
     private val initGameUseCase: InitGameUseCase = InitGameUseCase()

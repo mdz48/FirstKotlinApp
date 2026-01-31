@@ -1,9 +1,10 @@
-package com.example.myapplication.ahorcado.presentation.screens
+package com.example.myapplication.features.ahorcado.presentation.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -144,7 +146,7 @@ fun FilaTeclado(letras: List<Char>, usedLetters: Set<Char>, onLetterClick: (Char
                     containerColor = if (isUsed) Color.Gray else MaterialTheme.colorScheme.primary,
                     disabledContainerColor = Color.LightGray
                 ),
-                contentPadding = androidx.compose.foundation.layout.PaddingValues(0.dp)
+                contentPadding = PaddingValues(0.dp)
             ) {
                 Text(
                     text = letter.toString(),
@@ -174,14 +176,14 @@ fun Dibujo(errors: Int) {
     ) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             // Base siempre visible
-            Text(text = cuerpoCompleto[0], fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace)
-            Text(text = cuerpoCompleto[1], fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace)
+            Text(text = cuerpoCompleto[0], fontFamily = FontFamily.Monospace)
+            Text(text = cuerpoCompleto[1], fontFamily = FontFamily.Monospace)
 
             // Cabeza (error >= 1)
             if (errors >= 1) {
-                Text(text = cuerpoCompleto[2], fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace)
+                Text(text = cuerpoCompleto[2], fontFamily = FontFamily.Monospace)
             } else {
-                Text(text = " |      ", fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace)
+                Text(text = " |      ", fontFamily = FontFamily.Monospace)
             }
 
             // Cuerpo (error >= 2), brazos (error >= 3, 4)
@@ -191,7 +193,7 @@ fun Dibujo(errors: Int) {
                 errors >= 2 -> " |     | "
                 else -> " |      "
             }
-            Text(text = cuerpo, fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace)
+            Text(text = cuerpo, fontFamily = FontFamily.Monospace)
 
             // Piernas (error >= 5, 6)
             val piernas = when {
@@ -199,9 +201,9 @@ fun Dibujo(errors: Int) {
                 errors >= 5 -> " |    /  "
                 else -> " |      "
             }
-            Text(text = piernas, fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace)
+            Text(text = piernas, fontFamily = FontFamily.Monospace)
 
-            Text(text = cuerpoCompleto[5], fontFamily = androidx.compose.ui.text.font.FontFamily.Monospace)
+            Text(text = cuerpoCompleto[5], fontFamily = FontFamily.Monospace)
         }
     }
 }
