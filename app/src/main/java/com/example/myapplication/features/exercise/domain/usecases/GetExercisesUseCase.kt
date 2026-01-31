@@ -7,9 +7,13 @@ class GetExercisesUseCase(
     private val repository: ExerciseRepository
 ) {
 
-    suspend operator fun invoke(): Result<List<Exercise>> {
+    suspend operator fun invoke(bodyPart: String? = null): Result<List<Exercise>> {
         return try {
-            val exercises = repository.getExercises()
+            val exercises = if (bodyPart != null) {
+                repository.getExercisesByBodyPart(bodyPart)
+            } else {
+                repository.getExercises()
+            }
 
             val filteredCharacters = exercises.filter { it.name.isNotBlank() }
 

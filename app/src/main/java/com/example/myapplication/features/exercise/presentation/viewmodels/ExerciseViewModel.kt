@@ -16,14 +16,14 @@ class ExerciseViewModel(
     val uiState = _uiState.asStateFlow()
 
     init {
-        loadExercises()
+        loadExercises(bodyPart = "chest")
     }
 
-    private fun loadExercises() {
+    fun loadExercises(bodyPart: String? = null) {
         _uiState.update { it.copy(isLoading = true) }
 
         viewModelScope.launch {
-            val result = getExercisesUseCase()
+            val result = getExercisesUseCase(bodyPart)
             _uiState.update { currentState ->
                 result.fold(
                     onSuccess = { list ->

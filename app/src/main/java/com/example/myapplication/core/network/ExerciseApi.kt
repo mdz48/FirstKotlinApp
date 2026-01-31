@@ -11,4 +11,10 @@ interface ExerciseApi {
         @Query("limit") limit: Int
     ): ExercisesResponse
 
+    @GET("exercises/filter")
+    suspend fun getExercisesByBodyPart(
+        @Query("limit") limit: Int,
+        @Query("bodyParts") bodyPart: String
+    ): ExercisesResponse
+
 }

@@ -15,4 +15,12 @@ class ExercisesRepositoryImpl(
         )
         return response.data.map { it.toDomain() }
     }
+
+    override suspend fun getExercisesByBodyPart(bodyPart: String): List<Exercise> {
+        val response = api.getExercisesByBodyPart(
+            limit = 25,
+            bodyPart = bodyPart
+        )
+        return response.data.map { it.toDomain() }
+    }
 }
