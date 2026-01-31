@@ -16,7 +16,7 @@ class ExerciseViewModel(
     val uiState = _uiState.asStateFlow()
 
     init {
-        loadExercises(bodyPart = "chest")
+        loadExercises()
     }
 
     fun loadExercises(bodyPart: String? = null) {
@@ -35,5 +35,28 @@ class ExerciseViewModel(
                 )
             }
         }
+    }
+
+    fun toggleFilter() {
+        _uiState.update { it.copy(isFilterExpanded = !it.isFilterExpanded) }
+    }
+
+    fun onBodyPartChecked(bodyPart: String, isChecked: Boolean) {
+        _uiState.update {
+            it.copy(
+                selectedBodyPart = if (isChecked) bodyPart else null
+            )
+        }
+    }
+
+    fun applyFilters() {
+        val selectedBodyPart = _uiState.value.selectedBodyPart
+        _uiState.update { it.copy(isFilterExpanded = false) }
+        loadExercises(bodyPart = selectedBodyPart)
+    }
+
+    fun clearFilters() {
+        _uiState.update { it.copy(selectedBodyPart = null) }
+        loadExercises()
     }
 }
