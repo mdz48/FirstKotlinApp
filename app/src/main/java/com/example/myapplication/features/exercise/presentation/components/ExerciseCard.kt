@@ -59,7 +59,10 @@ fun ExerciseCard(
             .fillMaxWidth()
             .padding(8.dp),
         shape = RoundedCornerShape(12.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = Color(0xFF1E1E1E)
+        )
     ) {
         Column(
             modifier = Modifier.fillMaxWidth(),
@@ -72,13 +75,13 @@ fun ExerciseCard(
                 contentDescription = "Imagen de $name",
                 modifier = Modifier
                     .size(180.dp)
-                    .clip(RoundedCornerShape(topStart = 12.dp, bottomStart = 12.dp)),
+                    .clip(RoundedCornerShape(topStart = 12.dp, topEnd = 12.dp)),
                 contentScale = ContentScale.Crop
             )
 
             Column(
                 modifier = Modifier
-                    .padding(horizontal = 16.dp)
+                    .padding(16.dp)
                     .fillMaxWidth()
             ) {
                 Text(
@@ -87,9 +90,15 @@ fun ExerciseCard(
                     fontWeight = FontWeight.Bold,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
+                    color = Color.White
                 )
-                Spacer(modifier = Modifier.height(4.dp))
-                Text("Instructions:", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
+                Spacer(modifier = Modifier.height(8.dp))
+                Text(
+                    "Instructions:",
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    color = Color(0xFFE53935)
+                )
                 Spacer(modifier = Modifier.height(4.dp))
                 instructions.forEachIndexed { index, instruction ->
                     Row(
@@ -99,7 +108,7 @@ fun ExerciseCard(
                         Box(
                             modifier = Modifier
                                 .size(8.dp)
-                                .background(Color.Gray, shape = CircleShape)
+                                .background(Color(0xFFE53935), shape = CircleShape)
                                 .align(Alignment.CenterVertically)
                         )
                         Spacer(modifier = Modifier.width(8.dp))
@@ -107,7 +116,8 @@ fun ExerciseCard(
                             text = instruction,
                             style = MaterialTheme.typography.bodyMedium,
                             maxLines = 3,
-                            overflow = TextOverflow.Ellipsis
+                            overflow = TextOverflow.Ellipsis,
+                            color = Color(0xFFB0B0B0)
                         )
                     }
                 }
